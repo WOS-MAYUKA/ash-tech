@@ -49,6 +49,7 @@
         .accent-text { color: var(--color-accent); font-weight: 700; }
         .section-padding { padding: 100px 0; }
         .badge-dev { background: #555; color: #fff; font-size: 0.7em; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 5px; }
+        .badge-premium { background: var(--color-gold); color: #000; font-size: 0.7em; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 5px; font-weight: bold; }
 
         /* Buttons */
         .btn {
@@ -272,6 +273,30 @@
 
         .price-disclaimer { max-width: 800px; margin: 40px auto 0; text-align: center; font-size: 0.85rem; color: #8a9ba8; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }
 
+        /* Spot Support Box */
+        .spot-support-box {
+            margin-top: 60px;
+            background: rgba(10, 17, 40, 0.8);
+            border: 2px solid var(--color-accent);
+            border-radius: 15px;
+            padding: 30px; text-align: center;
+            max-width: 800px; margin-left: auto; margin-right: auto;
+        }
+        .spot-title { color: var(--color-accent); font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; }
+        .spot-grid {
+            display: flex; gap: 20px; text-align: left; margin-top: 20px;
+        }
+        .spot-item {
+            flex: 1; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; 
+            border:1px solid rgba(255,255,255,0.1);
+        }
+        .spot-item h4 { color: var(--color-text); margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
+        .spot-item p { font-size: 0.9rem; margin-bottom: 5px; }
+
+        @media (max-width: 768px) {
+            .spot-grid { flex-direction: column; }
+        }
+
         /* =========================================
            9. FAQ & CTA & FOOTER (Common)
            ========================================= */
@@ -333,7 +358,7 @@
     <section class="hero">
         <div class="container hero-layout">
             <div class="hero-content">
-                <p class="catchphrase">Lステップ級の高機能を、月額ゼロで。</p>
+                <p class="catchphrase">大手ツール級の高機能を、月額ゼロで。</p>
                 <h1 class="hero-title">
                     <span class="highlight">データ資産化を実現するLINEシステム</span>
                     G-Flow
@@ -414,9 +439,10 @@
                         <div class="feature-title">診断・接客機能</div>
                     </div>
                     <ul class="feature-list">
-                        <li><strong>柔軟なシナリオ診断:</strong><br>質問文、選択肢、分岐をスプレッドシートで自由に管理。回答に応じた「属性タグ」を自動付与。</li>
-                        <li><strong>高度な判定ロジック:</strong><br>加点方式のスコアリングに加え、「優先順位」設定により売りたい商品を優先的に提示可能。</li>
+                        <li><strong>柔軟なシナリオ診断:</strong><br>質問文、選択肢、分岐をスプレッドシートで自由に設定可能。</li>
+                        <li><strong>属性タグの自由カスタマイズ:</strong><br>ユーザー自身でタグを自由に定義・付与設定が可能。追加コストはかかりません。</li>
                         <li><strong>自在なコンバージョン誘導:</strong><br>診断結果に応じた画像付きカード（Flex Message）を自動生成。ユーザー名を含めた呼びかけで成約率UP。</li>
+                        <li><strong>高度な判定ロジック <span class="badge-premium">Premium</span>:</strong><br>スコアリング判定や、同点時の「優先順位」設定に対応。</li>
                     </ul>
                 </div>
 
@@ -487,9 +513,9 @@
                             <td class="td-ash">完全にお客様の資産<br><span style="font-size:0.8rem">(スプレッドシート管理)</span> <span class="check-icon">✔</span></td>
                         </tr>
                         <tr>
-                            <td>システムの保守</td>
-                            <td style="color:var(--color-text-sub);">自動更新だが<br>ブラックボックス</td>
-                            <td class="td-ash">自動メンテ＆バックアップ<br><span style="font-size:0.8rem">(資産を守る自己修復機能)</span> <span class="check-icon">✔</span></td>
+                            <td>設定の自由度</td>
+                            <td style="color:var(--color-text-sub);">プランで制限あり</td>
+                            <td class="td-ash">ユーザー自身で設定自在<br><span style="font-size:0.8rem">(タグ・質問文など)</span> <span class="check-icon">✔</span></td>
                         </tr>
                         <tr>
                             <td>開発者の顔</td>
@@ -521,8 +547,8 @@
                     </div>
                     <ul class="plan-features">
                         <li><strong>仕様固定の標準パッケージ</strong></li>
+                        <li><strong>タグ・質問文は自由に設定可能</strong></li>
                         <li>シナリオ診断 (5問程度 / ボタン選択)</li>
-                        <li>属性タグ自動付与 & スコアリング</li>
                         <li>CRM (LINE名取得・ステータス管理)</li>
                         <li>セグメント配信 (即時・予約・テスト送信)</li>
                         <li>正確な配信数計測 (ブロック除外)</li>
@@ -542,12 +568,12 @@
                     </div>
                     <ul class="plan-features">
                         <li><strong>仕様書に基づくカスタム設計</strong></li>
+                        <li><strong>スコアリング判定ロジック実装</strong></li>
                         <li>質問数 10問〜 / 複雑な分岐ロジック</li>
                         <li>テキスト入力 (感想・要望の取得)</li>
                         <li>生成AI連携オプション (要相談)</li>
                         <li>Looker Studio 高度分析レポート構築</li>
                         <li>リッチメニュー出し分け実装</li>
-                        <li>ステップ配信シナリオ構築</li>
                     </ul>
                     <a href="https://lin.ee/83IMpPQ" class="btn btn-gold" style="width:100%; text-align:center;">カスタマイズを相談する</a>
                 </div>
@@ -559,20 +585,21 @@
             </div>
 
             <div class="spot-support-box">
-                <div class="spot-title">🔧 「月額保守費」はいただきません</div>
-                <p>
-                    納品後の修正は、必要な時だけ費用が発生する「スポット対応」を採用。<br>
-                    何もなくても発生する固定費をゼロにし、利益率を最大化します。
-                </p>
-                <div class="spot-price-list">
+                <div class="spot-title">🔧 システムが柔軟だから「修正費ゼロ」</div>
+                <div class="spot-grid">
                     <div class="spot-item">
-                        <strong>Lv.1 軽微な修正</strong><br>¥5,000 / 回
+                        <h4 style="color:var(--color-accent);">ご自身で設定する場合</h4>
+                        <p style="font-size:1.2rem; font-weight:bold; color:#fff;">費用：¥0</p>
+                        <p style="color:#b8c7d9;">
+                            質問文の変更、タグの追加、シナリオ分岐の設定などは、スプレッドシートからいつでも自由に変更可能です。システム修正費用はかかりません。
+                        </p>
                     </div>
                     <div class="spot-item">
-                        <strong>Lv.2 シナリオ変更</strong><br>¥15,000 / 回
-                    </div>
-                    <div class="spot-item">
-                        <strong>Lv.3 ロジック改修</strong><br>¥30,000〜 / 回
+                        <h4 style="color:var(--color-gold);">設定代行を依頼する場合</h4>
+                        <p style="font-size:1.2rem; font-weight:bold; color:#fff;">月額サポート / スポット対応</p>
+                        <p style="color:#b8c7d9;">
+                            「忙しくて設定できない」「プロに構成を任せたい」という場合は、Ash Tech直営の運用代行サービス（直販のみ）をご利用いただけます。
+                        </p>
                     </div>
                 </div>
             </div>
@@ -596,19 +623,18 @@
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-question">データのバックアップはどうなっていますか？</summary>
+                    <summary class="faq-question">質問やタグの変更にお金はかかりますか？</summary>
                     <div class="faq-answer">
-                        万全の対策を行っています。「自動メンテナンス機能」により、ログが増えすぎた場合は古いデータを整理しますが、重要な分析データは削除されずに自動的に「バックアップシート」へ移動・保存されます。<br>
-                        これにより、スプレッドシートが重くなることを防ぎつつ、過去のデータ資産を永久に保持できます。
+                        いいえ、かかりません。<br>
+                        G-Flowは「お客様自身で設定可能」なシステムです。スプレッドシートを編集するだけで、質問文やタグ、シナリオ分岐を即座に変更できます。修正のたびに開発者へ依頼料を支払う必要はありません。
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-question">導入後の修正やカスタマイズは可能ですか？</summary>
+                    <summary class="faq-question">導入後のサポート体制はどうなっていますか？</summary>
                     <div class="faq-answer">
-                        はい、柔軟に対応可能です。<br>
-                        本システムは、Ash Tech独自のベースシステム（テンプレート）にお客様ごとの診断ロジックを組み込んで納品する<strong>「セミオーダー型」</strong>です。<br>
-                        「テスト送信機能」や「ステータス更新ガード」など、現場の声から生まれた機能も標準搭載しており、独自の運用ルールに合わせた調整も可能です。
+                        システム自体の不具合については無償で対応いたします。<br>
+                        シナリオ作成や運用の代行をご希望の場合は、Ash Tech直営の有料サポート（月額またはスポット）もご用意しておりますので、お気軽にご相談ください。
                     </div>
                 </details>
             </div>
