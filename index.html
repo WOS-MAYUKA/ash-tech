@@ -36,7 +36,8 @@
 
         a { text-decoration: none; transition: 0.3s; }
         ul { list-style: none; }
-        h1, h2, h3 { font-family: var(--font-en); letter-spacing: 0.05em; }
+        h1, h2, h3, h4 { font-family: var(--font-en); letter-spacing: 0.05em; }
+        h3, h4 { font-family: var(--font-jp); } /* 日本語見出し用 */
         p { color: var(--color-text-sub); }
 
         /* =========================================
@@ -47,6 +48,7 @@
         .gold-text { color: var(--color-gold); }
         .accent-text { color: var(--color-accent); font-weight: 700; }
         .section-padding { padding: 100px 0; }
+        .badge-dev { background: #555; color: #fff; font-size: 0.7em; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 5px; }
 
         /* Buttons */
         .btn {
@@ -96,8 +98,7 @@
             display: flex;
             align-items: center;
             position: relative;
-            /* 背景画像（Unsplashのトンネルイメージ） */
-            background: linear-gradient(to right, rgba(10, 17, 40, 0.95), rgba(10, 17, 40, 0.7)), url('https://images.unsplash.com/photo-1519608487953-e999c9dc7468?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(to right, rgba(10, 17, 40, 0.95), rgba(10, 17, 40, 0.7)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
             padding-top: 80px;
@@ -120,7 +121,7 @@
         }
 
         .hero-title {
-            font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px; text-transform: uppercase;
+            font-size: 3rem; line-height: 1.2; margin-bottom: 30px; font-weight: 900;
         }
         .hero-title .highlight {
             display: block; font-size: 1.4rem; font-weight: 500;
@@ -131,7 +132,6 @@
 
         .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
 
-        /* スマホモックアップ（CSSのみで描画） */
         .hero-visual { flex: 1; display: flex; justify-content: center; }
         .phone-mockup {
             width: 280px; height: 560px;
@@ -164,6 +164,11 @@
         }
         .chat-bubble-user::before { left:auto; right:-8px; border-right-color:transparent; border-left-color:#06c755; }
 
+        .chat-bubble-img {
+            width: 100%; height: 100px; background: #ddd; border-radius: 10px; margin-bottom: 5px;
+            display: flex; align-items: center; justify-content: center; color: #555; font-size: 0.7rem;
+        }
+
         /* =========================================
            5. USP SECTION
            ========================================= */
@@ -186,33 +191,38 @@
             font-size: 3rem; color: var(--color-gold); margin-bottom: 20px;
             text-shadow: 0 0 20px rgba(207, 163, 79, 0.3);
         }
-        .usp-card h3 { font-size: 1.3rem; margin-bottom: 15px; font-family: var(--font-jp); }
+        .usp-card h3 { font-size: 1.3rem; margin-bottom: 15px; font-family: var(--font-jp); font-weight: 700; }
 
         /* =========================================
-           6. AUTHORITY SECTION
+           6. FUNCTION DETAIL SECTION (NEW)
            ========================================= */
-        .authority-section {
-            background: linear-gradient(to right, var(--color-bg-main), var(--color-bg-sub));
-            position: relative; overflow: hidden;
-        }
-        .authority-section::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(207, 163, 79, 0.05) 0%, transparent 70%);
-            animation: rotate 60s linear infinite;
-        }
-        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .feature-section { background-color: var(--color-bg-main); }
 
-        .authority-box {
-            position: relative; z-index: 2; background: rgba(10, 17, 40, 0.8);
-            padding: 60px; border-radius: 20px; border: 1px solid rgba(207, 163, 79, 0.2);
-            display: flex; align-items: center; gap: 50px;
+        .feature-container {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 60px; margin-top: 50px;
         }
-        .dev-profile { flex: 1; text-align: right; border-right: 2px solid var(--color-gold); padding-right: 50px; }
-        .dev-profile h3 { font-size: 2rem; margin-bottom: 5px; }
-        .dev-profile p { font-size: 0.9rem; color: var(--color-gold); font-weight: 700; }
-        .authority-text { flex: 2; }
-        .authority-text h4 { font-size: 1.4rem; margin-bottom: 20px; font-family: var(--font-jp); }
-        .authority-text p { font-size: 0.95rem; margin-bottom: 15px; }
+
+        .feature-box {
+            background: rgba(19, 28, 58, 0.5); border-radius: 20px; padding: 40px;
+            border-left: 5px solid var(--color-gold);
+            transition: 0.3s;
+        }
+        .feature-box:hover { background: rgba(19, 28, 58, 0.8); }
+
+        .feature-header { display: flex; align-items: center; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+        .feature-icon { font-size: 2rem; margin-right: 15px; color: var(--color-accent); }
+        .feature-title { font-size: 1.5rem; font-weight: 700; color: #fff; }
+
+        .feature-list { padding-left: 0; }
+        .feature-list li {
+            margin-bottom: 15px; font-size: 0.95rem; color: var(--color-text-sub);
+            padding-left: 20px; position: relative;
+        }
+        .feature-list li::before {
+            content: '●'; color: var(--color-gold); position: absolute; left: 0; font-size: 0.6rem; top: 8px;
+        }
+        .feature-list strong { color: #fff; font-weight: 700; }
 
         /* =========================================
            7. COMPARISON SECTION
@@ -229,96 +239,45 @@
         .check-icon { color: var(--color-gold); margin-left: 5px; }
 
         /* =========================================
-           8. SERVICE PLANS SECTION
+           8. PLANS SECTION
            ========================================= */
         .plans-section { background-color: var(--color-bg-main); }
-
         .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px; max-width: 1000px; margin: 0 auto;
         }
-
         .plan-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 40px;
-            position: relative;
-            transition: 0.3s;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px; padding: 40px; position: relative; transition: 0.3s;
             display: flex; flex-direction: column;
         }
         .plan-card.premium {
             border-color: var(--color-gold);
             background: linear-gradient(145deg, rgba(207, 163, 79, 0.05), transparent);
         }
-
         .plan-tag {
             background: var(--color-gold); color: #0a1128; font-weight: 700;
-            padding: 5px 15px; border-radius: 20px; font-size: 0.7rem;
-            display: inline-block; margin-bottom: 20px;
+            padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; display: inline-block; margin-bottom: 20px;
         }
-
         .plan-title { font-size: 1.8rem; margin-bottom: 5px; font-family: var(--font-en); }
-
-        /* Pricing */
         .plan-price-box { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .initial-price { font-size: 0.9rem; color: var(--color-text-sub); display: block; margin-bottom: 5px; }
         .initial-price strong { font-size: 2rem; color: #fff; font-family: var(--font-en); margin-left: 5px; }
         .monthly-price { font-size: 1.1rem; color: var(--color-gold); font-weight: bold; display: block; margin-top: 5px;}
 
-        .price-disclaimer {
-            max-width: 800px;
-            margin: 40px auto 0;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #8a9ba8;
-            background: rgba(255,255,255,0.03);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .price-disclaimer strong {
-            color: var(--color-gold);
-            font-weight: 700;
-        }
-
-        /* Features List */
         .plan-features { list-style: none; margin-bottom: 40px; flex-grow: 1; }
-        .plan-features li {
-            margin-bottom: 12px; padding-left: 25px; position: relative; font-size: 0.9rem; color: #b8c7d9;
-        }
-        .plan-features li::before {
-            content: '✔'; color: var(--color-gold); position: absolute; left: 0; font-weight: bold;
-        }
+        .plan-features li { margin-bottom: 12px; padding-left: 25px; position: relative; font-size: 0.9rem; color: #b8c7d9; }
+        .plan-features li::before { content: '✔'; color: var(--color-gold); position: absolute; left: 0; font-weight: bold; }
         .plan-note { font-size: 0.8rem; color: #6e7f8d; margin-top: -5px; margin-bottom: 10px; padding-left: 25px; }
 
-        /* Spot Support Box */
-        .spot-support-box {
-            margin-top: 60px;
-            background: rgba(10, 17, 40, 0.8);
-            border: 2px solid var(--color-accent);
-            border-radius: 15px;
-            padding: 30px; text-align: center;
-            max-width: 800px; margin-left: auto; margin-right: auto;
-        }
-        .spot-title { color: var(--color-accent); font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; }
-        .spot-price-list { 
-            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; 
-            font-size: 0.85rem; text-align: left;
-        }
-        .spot-item { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border:1px solid rgba(255,255,255,0.1); }
+        .price-disclaimer { max-width: 800px; margin: 40px auto 0; text-align: center; font-size: 0.85rem; color: #8a9ba8; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }
 
         /* =========================================
-           9. FAQ SECTION
+           9. FAQ & CTA & FOOTER (Common)
            ========================================= */
         .faq-section { background-color: var(--color-bg-sub); }
         .faq-container { max-width: 800px; margin: 0 auto; }
-
         .faq-item { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-
         .faq-question {
             width: 100%; padding: 20px 0; text-align: left; background: none; border: none;
             color: #fff; font-size: 1.1rem; font-weight: 700; font-family: var(--font-jp);
@@ -326,81 +285,37 @@
         }
         .faq-question::after { content: '+'; font-size: 1.5rem; color: var(--color-gold); transition: 0.3s; }
         details[open] .faq-question::after { content: '-'; transform: rotate(180deg); }
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
+        .faq-answer { padding-bottom: 30px; color: var(--color-text-sub); line-height: 1.8; font-size: 0.95rem; }
 
-        .faq-answer {
-            padding-bottom: 30px; color: var(--color-text-sub); line-height: 1.8; font-size: 0.95rem;
-            animation: fadeIn 0.5s ease;
-        }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* =========================================
-           10. CTA SECTION
-           ========================================= */
         .cta-section {
             background: linear-gradient(rgba(10, 17, 40, 0.9), rgba(207, 163, 79, 0.2)), url('https://images.unsplash.com/photo-1519608487953-e999c9dc7468?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover; background-position: center;
-            position: relative; text-align: center;
+            background-size: cover; background-position: center; position: relative; text-align: center;
         }
         .cta-section h2 { font-size: 3rem; margin-bottom: 20px; }
 
-        /* =========================================
-           11. FOOTER & RESPONSIVE
-           ========================================= */
         .footer { background: #050a18; padding: 30px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-        .footer p { font-size: 0.8rem; color: #5d6d7e; }
 
         @media (max-width: 900px) {
             .hero-layout { flex-direction: column; text-align: center; }
             .hero-btns { justify-content: center; }
             .hero-visual { margin-top: 40px; }
-            .usp-grid { grid-template-columns: 1fr; }
-            .authority-box { flex-direction: column; text-align: center; gap: 30px; padding: 40px; }
-            .dev-profile { border-right: none; border-bottom: 2px solid var(--color-gold); padding-right: 0; padding-bottom: 30px; }
+            .feature-container { grid-template-columns: 1fr; }
             .comparison-table th, .comparison-table td { padding: 15px 10px; font-size: 0.8rem; }
-            .spot-price-list { flex-direction: column; }
         }
 
-        /* === BACK TO TOP BUTTON === */
+        /* Back to top */
         .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
+            position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px;
             background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
-            color: var(--color-bg-main); /* 矢印の色はネイビー */
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 900; /* 太く */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            z-index: 9999; /* 最前面 */
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--color-bg-main); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; font-size: 1.2rem; font-weight: 900;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 9999;
+            opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s ease;
+            cursor: pointer; border: 1px solid rgba(255,255,255,0.2);
         }
-
-        /* 表示時のスタイル */
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        /* ホバー時の動き */
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(207, 163, 79, 0.5);
-            background: var(--color-gold); /* ホバー時は単色ゴールドに */
-        }
+        .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top:hover { transform: translateY(-5px); background: var(--color-gold); }
 
     </style>
 </head>
@@ -418,18 +333,18 @@
     <section class="hero">
         <div class="container hero-layout">
             <div class="hero-content">
-                <p class="catchphrase">月額費用からの解放。真のデータ資産化。</p>
+                <p class="catchphrase">Lステップ級の高機能を、月額ゼロで。</p>
                 <h1 class="hero-title">
-                    <span class="highlight">次世代LINEマーケティングシステム</span>
+                    <span class="highlight">データ資産化を実現するLINEシステム</span>
                     G-Flow
                 </h1>
                 <p class="hero-desc">
-                    Googleの堅牢なサーバーレスアーキテクチャを採用し、「ランニングコストゼロ」を実現。<br>
-                    顧客データはすべてあなたのGoogleスプレッドシートへ。<br>
-                    外部ツールに依存しない、あなただけの最強のCRM基盤を構築します。
+                    「高額な月額費」と「データのブラックボックス化」からの解放。<br>
+                    Googleのサーバーレス技術を駆使し、メンテナンスフリーで稼働。<br>
+                    CRM、診断、セグメント配信の全てを、あなただけのGoogleスプレッドシート資産に変えます。
                 </p>
                 <div class="hero-btns">
-                    <a href="#usp" class="btn btn-gold">選ばれる理由を見る</a>
+                    <a href="#features" class="btn btn-gold">機能一覧を見る</a>
                     <a href="https://lin.ee/83IMpPQ" class="btn btn-outline">デモ体験・無料相談</a>
                 </div>
                 <p style="margin-top: 25px; font-size: 0.85rem; color: #8a9ba8; line-height: 1.5;">
@@ -442,17 +357,17 @@
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="chat-header">G-Flow Official Demo</div>
-                        <div class="chat-bubble">
-                            友だち追加ありがとうございます！<br>
-                            Ash Techのサーバーレスシステム診断を開始します。
-                        </div>
-                        <div class="chat-btn">診断をスタートする ▶︎</div>
                         <div class="chat-bubble chat-bubble-user" style="margin-top:auto;">
                             診断スタート
                         </div>
                         <div class="chat-bubble">
-                            Q1. 現在の顧客管理における課題を教えてください。
+                            Q1. ご希望の機能を選択してください。
                         </div>
+                        <div class="chat-bubble-img">
+                            [ Flex Message Card ]<br>
+                            画像付き診断カード
+                        </div>
+                        <div class="chat-btn">詳しく見る ▶︎</div>
                     </div>
                 </div>
             </div>
@@ -469,33 +384,77 @@
                 <div class="usp-card">
                     <div class="usp-icon">💎</div>
                     <h3>サーバーレスで<br>ランニングコスト「ゼロ」</h3>
-                    <p>高額な月額費用はもう不要です。Googleの無料枠を活用した設計で、維持費を極限まで削減。浮いた予算を広告や施策に投資できます。</p>
+                    <p>Googleの無料枠を活用した設計で、維持費を極限まで削減。浮いた予算を広告や施策に投資できます。</p>
                 </div>
                 <div class="usp-card">
                     <div class="usp-icon">🔐</div>
                     <h3>データは全て<br>「あなたの資産」になる</h3>
-                    <p>顧客情報は使い慣れたGoogleスプレッドシートに蓄積。ツール解約でデータが消えるリスクはありません。自由に加工・分析が可能です。</p>
+                    <p>顧客情報は使い慣れたGoogleスプレッドシートに蓄積。ツール解約でデータが消えるリスクはありません。</p>
                 </div>
                 <div class="usp-card">
                     <div class="usp-icon">🎯</div>
-                    <h3>一元管理からの<br>「セグメント配信」</h3>
-                    <p>診断結果、ステータス、対応履歴を一箇所に集約。「見込み客だけに絞って配信」など、成約率を高める攻めのアプローチが可能です。</p>
+                    <h3>メンテナンスフリーの<br>「自動保守機能」</h3>
+                    <p>ログの自動削除やバックアップ機能を搭載。システムが重くなるのを防ぎ、長期的に安定稼働します。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding authority-section">
+    <section id="features" class="section-padding feature-section">
         <div class="container">
-            <div class="authority-box">
-                <div class="dev-profile">
-                    <h3>Ash Tech</h3>
-                    <p>Engineering by Professional</p>
+            <div class="section-header text-center">
+                <h2>All Features</h2>
+                <p class="subtitle">高度なマーケティング機能と、堅牢なシステム基盤の融合。</p>
+            </div>
+
+            <div class="feature-container">
+                <div class="feature-box">
+                    <div class="feature-header">
+                        <div class="feature-icon">💬</div>
+                        <div class="feature-title">診断・接客機能</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li><strong>柔軟なシナリオ診断:</strong><br>質問文、選択肢、分岐をスプレッドシートで自由に管理。回答に応じた「属性タグ」を自動付与。</li>
+                        <li><strong>高度な判定ロジック:</strong><br>加点方式のスコアリングに加え、「優先順位」設定により売りたい商品を優先的に提示可能。</li>
+                        <li><strong>自在なコンバージョン誘導:</strong><br>診断結果に応じた画像付きカード（Flex Message）を自動生成。ユーザー名を含めた呼びかけで成約率UP。</li>
+                    </ul>
                 </div>
-                <div class="authority-text">
-                    <h4>大手企業の基幹システムを手掛ける<br>現役エンジニアによる設計</h4>
-                    <p>G-Flowは、金融インフラなどミッションクリティカルな領域で培った技術知見を基に構築されています。サーバーレスアーキテクチャによるコスト削減は、品質への妥協ではなく、技術による「最適化」の証です。</p>
-                    <p class="accent-text">本質を知るプロフェッショナルにこそ選ばれる、堅牢なシステム基盤を提供します。</p>
+
+                <div class="feature-box">
+                    <div class="feature-header">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-title">データ分析・CRM</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li><strong>人間味のある顧客リスト:</strong><br>IDだけでなく「LINE表示名」を自動取得。誰がどのステータスにいるかをリアルタイム管理。</li>
+                        <li><strong>診断データ分析:</strong><br>「誰が・いつ・どのルートで・何の結果になったか」を1行で可視化。</li>
+                        <li><strong>グラフ・レポート化:</strong><br>Looker Studio連携により、診断結果の傾向やコンバージョン率をグラフで直感的に把握可能。</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-header">
+                        <div class="feature-icon">📨</div>
+                        <div class="feature-title">セグメント・配信</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li><strong>ターゲット一斉配信:</strong><br>「予算重視タグの人」だけに絞ってメッセージを即時・予約配信。無駄打ちを削減。</li>
+                        <li><strong>安全なテスト送信機能:</strong><br>本番配信前に、管理者だけにテスト送信して表示崩れやリンクをチェック可能。</li>
+                        <li><strong>ステータス更新ガード:</strong><br>「商談中」などの重要顧客に対して、自動メッセージによるステータス上書きを防ぐ保護機能。</li>
+                        <li><strong>ステップ配信 <span class="badge-dev">Dev</span>:</strong><br>登録日から◯日後に自動でフォローメッセージを送信（開発ロードマップに含まれます）。</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-header">
+                        <div class="feature-icon">⚙️</div>
+                        <div class="feature-title">運用・メンテナンス</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li><strong>ワンクリック初期設定:</strong><br>難しいプログラム知識は不要。メニューから「初期セットアップ」を押すだけで環境構築完了。</li>
+                        <li><strong>完全自動メンテナンス:</strong><br>データが溜まってもシステムが重くならないよう、定期的に不要ログを自動削除。</li>
+                        <li><strong>自動バックアップ:</strong><br>大切な分析データは削除せず、「バックアップシート」へ自動退避。資産を長期保護します。</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -528,9 +487,9 @@
                             <td class="td-ash">完全にお客様の資産<br><span style="font-size:0.8rem">(スプレッドシート管理)</span> <span class="check-icon">✔</span></td>
                         </tr>
                         <tr>
-                            <td>カスタマイズ性</td>
-                            <td style="color:var(--color-text-sub);">制限あり<br><span style="font-size:0.8rem">(用意された機能のみ)</span></td>
-                            <td class="td-ash">柔軟に対応可能<br><span style="font-size:0.8rem">(クラウド基盤上で拡張自在)</span> <span class="check-icon">✔</span></td>
+                            <td>システムの保守</td>
+                            <td style="color:var(--color-text-sub);">自動更新だが<br>ブラックボックス</td>
+                            <td class="td-ash">自動メンテ＆バックアップ<br><span style="font-size:0.8rem">(資産を守る自己修復機能)</span> <span class="check-icon">✔</span></td>
                         </tr>
                         <tr>
                             <td>開発者の顔</td>
@@ -556,17 +515,18 @@
                         <span class="plan-tag" style="background:#b8c7d9;">PACKAGE</span>
                         <h3 class="plan-title">Standard</h3>
                         <div class="plan-price-box">
-                            <span class="initial-price">初期構築費<strong>¥98,000</strong><span style="font-size:1rem">(税別)</span></span>
+                            <span class="initial-price">初期構築費<strong>¥150,000</strong><span style="font-size:1rem">(税別)</span></span>
                             <span class="monthly-price">システム月額利用料: ¥0</span>
                         </div>
                     </div>
                     <ul class="plan-features">
                         <li><strong>仕様固定の標準パッケージ</strong></li>
-                        <li>診断機能 (5問固定 / ボタン選択のみ)</li>
-                        <li class="plan-note">※テキスト入力・分岐は不可</li>
-                        <li>標準CRM (スプレッドシート連動)</li>
-                        <li>セグメント配信機能</li>
-                        <li>排他制御・編集保護機能</li>
+                        <li>シナリオ診断 (5問程度 / ボタン選択)</li>
+                        <li>属性タグ自動付与 & スコアリング</li>
+                        <li>CRM (LINE名取得・ステータス管理)</li>
+                        <li>セグメント配信 (即時・予約・テスト送信)</li>
+                        <li>正確な配信数計測 (ブロック除外)</li>
+                        <li>自動メンテナンス & バックアップ</li>
                     </ul>
                     <a href="https://lin.ee/83IMpPQ" class="btn btn-outline" style="width:100%; text-align:center;">導入の相談をする</a>
                 </div>
@@ -576,17 +536,18 @@
                         <span class="plan-tag">ORDER MADE</span>
                         <h3 class="plan-title">Premium</h3>
                         <div class="plan-price-box">
-                            <span class="initial-price">初期構築費<strong>¥198,000〜</strong><span style="font-size:1rem">(税別)</span></span>
+                            <span class="initial-price">初期構築費<strong>¥250,000〜</strong><span style="font-size:1rem">(税別)</span></span>
                             <span class="monthly-price">システム月額利用料: ¥0</span>
                         </div>
                     </div>
                     <ul class="plan-features">
                         <li><strong>仕様書に基づくカスタム設計</strong></li>
-                        <li>質問数 最大10問まで</li>
-                        <li>簡易シナリオ分岐 (1パターン)</li>
-                        <li>テキスト入力項目 (2点まで)</li>
-                        <li class="plan-note">※感想や要望などの自由記述に対応</li>
-                        <li>オプション: 通知 / 外部連携 / 複雑ロジック</li>
+                        <li>質問数 10問〜 / 複雑な分岐ロジック</li>
+                        <li>テキスト入力 (感想・要望の取得)</li>
+                        <li>生成AI連携オプション (要相談)</li>
+                        <li>Looker Studio 高度分析レポート構築</li>
+                        <li>リッチメニュー出し分け実装</li>
+                        <li>ステップ配信シナリオ構築</li>
                     </ul>
                     <a href="https://lin.ee/83IMpPQ" class="btn btn-gold" style="width:100%; text-align:center;">カスタマイズを相談する</a>
                 </div>
@@ -596,6 +557,7 @@
                 <p>※本ページに記載の価格は、<strong>開発パートナー（制作会社・代理店）様向けの特別卸価格</strong>です。<br>
                 一般の店舗・企業様への直接導入や、運用コンサルティングを含む場合は価格が異なります。</p>
             </div>
+
             <div class="spot-support-box">
                 <div class="spot-title">🔧 「月額保守費」はいただきません</div>
                 <p>
@@ -604,10 +566,10 @@
                 </p>
                 <div class="spot-price-list">
                     <div class="spot-item">
-                        <strong>Lv.1 テキスト修正</strong><br>¥5,000 / 回
+                        <strong>Lv.1 軽微な修正</strong><br>¥5,000 / 回
                     </div>
                     <div class="spot-item">
-                        <strong>Lv.2 シナリオ微修正</strong><br>¥15,000 / 回
+                        <strong>Lv.2 シナリオ変更</strong><br>¥15,000 / 回
                     </div>
                     <div class="spot-item">
                         <strong>Lv.3 ロジック改修</strong><br>¥30,000〜 / 回
@@ -634,10 +596,10 @@
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-question">セキュリティ面は大丈夫ですか？</summary>
+                    <summary class="faq-question">データのバックアップはどうなっていますか？</summary>
                     <div class="faq-answer">
-                        ご安心ください。顧客データは全て、お客様ご自身のGoogleアカウント（スプレッドシート）内に保存されます。<br>
-                        Ash Techがデータを保有する形ではなく、Googleの堅牢なセキュリティ基盤の上でお客様自身が管理する形になるため、外部への流出リスクを最小限に抑えられます。
+                        万全の対策を行っています。「自動メンテナンス機能」により、ログが増えすぎた場合は古いデータを整理しますが、重要な分析データは削除されずに自動的に「バックアップシート」へ移動・保存されます。<br>
+                        これにより、スプレッドシートが重くなることを防ぎつつ、過去のデータ資産を永久に保持できます。
                     </div>
                 </details>
 
@@ -646,7 +608,7 @@
                     <div class="faq-answer">
                         はい、柔軟に対応可能です。<br>
                         本システムは、Ash Tech独自のベースシステム（テンプレート）にお客様ごとの診断ロジックを組み込んで納品する<strong>「セミオーダー型」</strong>です。<br>
-                        画一的なツールとは異なり、「質問内容を変えたい」「ロジックを微調整したい」といったご要望にも、エンジニアがコードレベルで柔軟に対応いたします。
+                        「テスト送信機能」や「ステータス更新ガード」など、現場の声から生まれた機能も標準搭載しており、独自の運用ルールに合わせた調整も可能です。
                     </div>
                 </details>
             </div>
@@ -673,8 +635,8 @@
             <div class="logo" style="margin-bottom: 15px; justify-content: center;"><span>Ash</span> Tech</div>
 
             <p style="margin-bottom: 15px;">
-                <a href="legal.html" style="color: #5d6d7e; margin: 0 10px; font-size: 0.8rem; text-decoration: none;">特定商取引法に基づく表記</a> | 
-                <a href="legal.html" style="color: #5d6d7e; margin: 0 10px; font-size: 0.8rem; text-decoration: none;">プライバシーポリシー</a>
+                <a href="#" style="color: #5d6d7e; margin: 0 10px; font-size: 0.8rem; text-decoration: none;">特定商取引法に基づく表記</a> | 
+                <a href="#" style="color: #5d6d7e; margin: 0 10px; font-size: 0.8rem; text-decoration: none;">プライバシーポリシー</a>
             </p>
 
             <p>&copy; Ash Tech. All Rights Reserved.</p>
@@ -683,13 +645,11 @@
 
     <a href="#" id="backToTop" class="back-to-top" aria-label="ページトップへ">▲</a>
 
-</body>
     <script>
         // トップへ戻るボタンの制御
         const backToTopBtn = document.getElementById('backToTop');
 
         window.addEventListener('scroll', () => {
-            // 300px以上スクロールしたら表示
             if (window.scrollY > 300) {
                 backToTopBtn.classList.add('show');
             } else {
@@ -698,12 +658,12 @@
         });
 
         backToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // URLへのリンク動作を無効化
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth' // スムーズスクロール
+                behavior: 'smooth'
             });
         });
     </script>
-
+</body>
 </html>
