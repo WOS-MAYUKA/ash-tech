@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>G-Flow by Ash Tech | 月額費ゼロ、データ資産化を実現するLINEマーケティング</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,31 +14,24 @@
            1. RESET & VARIABLES
            ========================================= */
         :root {
-            --color-bg-main: #0a1128;   /* Deep Navy */
-            --color-bg-sub: #131c3a;    /* Lighter Navy */
+            --color-bg-main: #0a1128;
+            --color-bg-sub: #131c3a;
             --color-text: #ffffff;
             --color-text-sub: #b8c7d9;
-            --color-gold: #cfa34f;      /* Ash Gold */
+            --color-gold: #cfa34f;
             --color-gold-light: #e6c67e;
-            --color-accent: #00c897;    /* Teal Green (Trust) */
+            --color-accent: #00c897;
             --font-en: 'Montserrat', sans-serif;
             --font-jp: 'Noto Sans JP', sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: var(--font-jp);
-            background-color: var(--color-bg-main);
-            color: var(--color-text);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
+        body { font-family: var(--font-jp); background-color: var(--color-bg-main); color: var(--color-text); line-height: 1.7; overflow-x: hidden; }
         a { text-decoration: none; transition: 0.3s; }
         ul { list-style: none; }
         h1, h2, h3, h4 { font-family: var(--font-en); letter-spacing: 0.05em; }
-        h3, h4 { font-family: var(--font-jp); } /* 日本語見出し用 */
+        h3, h4 { font-family: var(--font-jp); }
         p { color: var(--color-text-sub); }
 
         /* =========================================
@@ -47,299 +40,103 @@
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
         .text-center { text-align: center; }
         .gold-text { color: var(--color-gold); }
-        .accent-text { color: var(--color-accent); font-weight: 700; }
         .section-padding { padding: 100px 0; }
-        .badge-dev { background: #555; color: #fff; font-size: 0.7em; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 5px; }
-        .badge-premium { background: var(--color-gold); color: #000; font-size: 0.7em; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 5px; font-weight: bold; }
+        .badge-premium { background: var(--color-gold); color: #0a1128; font-size: 0.7em; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 5px; font-weight: bold; }
 
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-family: var(--font-jp);
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .btn-gold {
-            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
-            color: var(--color-bg-main);
-        }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 40px; border-radius: 50px; font-weight: 700; font-family: var(--font-jp); letter-spacing: 0.05em; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; }
+        .btn-gold { background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light)); color: var(--color-bg-main); }
         .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(207, 163, 79, 0.4); }
-
-        .btn-outline {
-            border: 2px solid var(--color-gold);
-            color: var(--color-gold);
-            background: transparent;
-        }
+        .btn-outline { border: 2px solid var(--color-gold); color: var(--color-gold); background: transparent; }
         .btn-outline:hover { background: var(--color-gold); color: var(--color-bg-main); }
 
         /* =========================================
-           3. HEADER
+           3. HEADER & FOOTER
            ========================================= */
-        .header {
-            position: fixed; top: 0; width: 100%; padding: 15px 0;
-            background: rgba(10, 17, 40, 0.95); backdrop-filter: blur(10px);
-            z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+        .header { position: fixed; top: 0; width: 100%; padding: 15px 0; background: rgba(10, 17, 40, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 900; font-family: var(--font-en); display: flex; align-items: center; gap: 5px; }
+        .logo { font-size: 1.5rem; font-weight: 900; font-family: var(--font-en); display: flex; align-items: center; gap: 5px; color: #fff;}
         .logo span { color: var(--color-gold); }
+        .footer { background: #050a18; padding: 30px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
 
         /* =========================================
            4. HERO SECTION
            ========================================= */
-        .hero {
-            min-height: 95vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: linear-gradient(to right, rgba(10, 17, 40, 0.95), rgba(10, 17, 40, 0.7)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            padding-top: 80px;
-        }
-
-        .hero-layout {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 60px;
-        }
-
+        .hero { min-height: 95vh; display: flex; align-items: center; position: relative; background: linear-gradient(to right, rgba(10, 17, 40, 0.95), rgba(10, 17, 40, 0.7)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center; padding-top: 80px; }
+        .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 60px; }
         .hero-content { flex: 1; max-width: 650px; }
-
-        .catchphrase {
-            font-size: 1rem; font-weight: 700; color: var(--color-accent);
-            margin-bottom: 20px; display: inline-block;
-            background: rgba(0, 200, 151, 0.1); padding: 5px 20px; border-radius: 30px;
-            border: 1px solid rgba(0, 200, 151, 0.2);
-        }
-
-        .hero-title {
-            font-size: 3rem; line-height: 1.2; margin-bottom: 30px; font-weight: 900;
-        }
-        .hero-title .highlight {
-            display: block; font-size: 1.4rem; font-weight: 500;
-            font-family: var(--font-jp); color: var(--color-gold); margin-bottom: 10px;
-        }
-
+        .catchphrase { font-size: 1rem; font-weight: 700; color: var(--color-accent); margin-bottom: 20px; display: inline-block; background: rgba(0, 200, 151, 0.1); padding: 5px 20px; border-radius: 30px; border: 1px solid rgba(0, 200, 151, 0.2); }
+        .hero-title { font-size: 3rem; line-height: 1.2; margin-bottom: 30px; font-weight: 900; }
+        .hero-title .highlight { display: block; font-size: 1.4rem; font-weight: 500; font-family: var(--font-jp); color: var(--color-gold); margin-bottom: 10px; }
         .hero-desc { font-size: 1rem; margin-bottom: 40px; color: var(--color-text-sub); line-height: 1.8; }
-
         .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
 
-        .hero-visual { flex: 1; display: flex; justify-content: center; }
-        .phone-mockup {
-            width: 280px; height: 560px;
-            background: #000; border-radius: 40px; border: 12px solid #1a1a1a;
-            position: relative; overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-            transform: rotate(-5deg);
-        }
-        .phone-screen {
-            background: #202020; width: 100%; height: 100%;
-            display: flex; flex-direction: column; padding: 20px;
-            font-family: sans-serif;
-        }
-        /* LINE風チャットUI */
-        .chat-header { text-align:center; margin-bottom:20px; color:#aaa; font-size:0.7rem; border-bottom:1px solid #333; padding-bottom:10px;}
-        .chat-bubble {
-            background: #fff; color: #000; padding: 12px; border-radius: 15px; border-top-left-radius: 0;
-            font-size: 0.75rem; margin-bottom: 15px; width: 85%; position: relative;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .chat-bubble::before { content:''; position:absolute; left:-8px; top:10px; border:8px solid transparent; border-right-color:#fff; border-top:0; }
-        .chat-btn {
-            background: #06c755; color: #fff; text-align: center; padding: 10px; border-radius: 8px;
-            font-size: 0.8rem; margin-top: 5px; font-weight: bold; cursor: pointer;
-        }
-        .chat-bubble-user {
-            background: #06c755; color: #fff; align-self: flex-end;
-            border-radius: 15px; border-top-right-radius: 0;
-            width: auto; max-width: 80%;
-        }
-        .chat-bubble-user::before { left:auto; right:-8px; border-right-color:transparent; border-left-color:#06c755; }
-
-        .chat-bubble-img {
-            width: 100%; height: 100px; background: #ddd; border-radius: 10px; margin-bottom: 5px;
-            display: flex; align-items: center; justify-content: center; color: #555; font-size: 0.7rem;
-        }
-
         /* =========================================
-           5. USP SECTION
+           5. USP SECTION (4 CORE VALUES)
            ========================================= */
         .usp-section { background-color: var(--color-bg-sub); }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
         .section-header .subtitle { font-size: 1rem; max-width: 700px; margin: 0 auto 60px; }
-
-        .usp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-
-        .usp-card {
-            background: rgba(255,255,255,0.03); padding: 40px; border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.05); text-align: center;
-            transition: 0.4s; position: relative;
-        }
-        .usp-card:hover {
-            transform: translateY(-10px); border-color: var(--color-gold);
-            background: linear-gradient(145deg, rgba(207, 163, 79, 0.1), transparent);
-        }
-        .usp-icon {
-            font-size: 3rem; color: var(--color-gold); margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(207, 163, 79, 0.3);
-        }
-        .usp-card h3 { font-size: 1.3rem; margin-bottom: 15px; font-family: var(--font-jp); font-weight: 700; }
+        .usp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .usp-card { background: rgba(255,255,255,0.03); padding: 35px 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: 0.4s; position: relative; }
+        .usp-card:hover { transform: translateY(-10px); border-color: var(--color-gold); background: linear-gradient(145deg, rgba(207, 163, 79, 0.1), transparent); }
+        .usp-icon { font-size: 3rem; color: var(--color-gold); margin-bottom: 20px; text-shadow: 0 0 20px rgba(207, 163, 79, 0.3); }
+        .usp-card h3 { font-size: 1.2rem; margin-bottom: 15px; font-family: var(--font-jp); font-weight: 700; color: #fff; line-height: 1.4;}
+        .usp-card p { font-size: 0.9rem; text-align: left; }
 
         /* =========================================
-           6. FUNCTION DETAIL SECTION (NEW)
+           6. FUNCTION DETAIL SECTION (6大機能)
            ========================================= */
         .feature-section { background-color: var(--color-bg-main); }
-
-        .feature-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 60px; margin-top: 50px;
-        }
-
-        .feature-box {
-            background: rgba(19, 28, 58, 0.5); border-radius: 20px; padding: 40px;
-            border-left: 5px solid var(--color-gold);
-            transition: 0.3s;
-        }
-        .feature-box:hover { background: rgba(19, 28, 58, 0.8); }
-
-        .feature-header { display: flex; align-items: center; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
-        .feature-icon { font-size: 2rem; margin-right: 15px; color: var(--color-accent); }
-        .feature-title { font-size: 1.5rem; font-weight: 700; color: #fff; }
-
-        .feature-list { padding-left: 0; }
-        .feature-list li {
-            margin-bottom: 15px; font-size: 0.95rem; color: var(--color-text-sub);
-            padding-left: 20px; position: relative;
-        }
-        .feature-list li::before {
-            content: '●'; color: var(--color-gold); position: absolute; left: 0; font-size: 0.6rem; top: 8px;
-        }
-        .feature-list strong { color: #fff; font-weight: 700; }
+        .feature-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 50px; }
+        .feature-box { background: rgba(19, 28, 58, 0.5); border-radius: 20px; padding: 35px; border-top: 4px solid var(--color-gold); transition: 0.3s; }
+        .feature-box:hover { background: rgba(19, 28, 58, 0.8); transform: translateY(-5px); }
+        .feature-header { display: flex; align-items: center; margin-bottom: 20px; }
+        .feature-icon { font-size: 2.5rem; margin-right: 15px; }
+        .feature-title { font-size: 1.3rem; font-weight: 700; color: #fff; line-height: 1.3;}
+        .feature-desc { font-size: 0.95rem; color: var(--color-text-sub); }
 
         /* =========================================
-           7. COMPARISON SECTION
+           7. PLANS SECTION
            ========================================= */
-        .comparison-section { background-color: var(--color-bg-sub); }
-        .comparison-table-wrap { max-width: 900px; margin: 0 auto; overflow-x: auto; }
-        .comparison-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        .comparison-table th, .comparison-table td {
-            padding: 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .comparison-table th { font-family: var(--font-jp); font-size: 1rem; }
-        .th-ash { background: rgba(207, 163, 79, 0.1); border-top: 3px solid var(--color-gold); }
-        .td-ash { background: rgba(207, 163, 79, 0.05); font-weight: 700; color: var(--color-gold); }
-        .check-icon { color: var(--color-gold); margin-left: 5px; }
-
-        /* =========================================
-           8. PLANS SECTION
-           ========================================= */
-        .plans-section { background-color: var(--color-bg-main); }
-        .plans-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px; max-width: 1000px; margin: 0 auto;
-        }
-        .plan-card {
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 20px; padding: 40px; position: relative; transition: 0.3s;
-            display: flex; flex-direction: column;
-        }
-        .plan-card.premium {
-            border-color: var(--color-gold);
-            background: linear-gradient(145deg, rgba(207, 163, 79, 0.05), transparent);
-        }
-        .plan-tag {
-            background: var(--color-gold); color: #0a1128; font-weight: 700;
-            padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; display: inline-block; margin-bottom: 20px;
-        }
-        .plan-title { font-size: 1.8rem; margin-bottom: 5px; font-family: var(--font-en); }
+        .plans-section { background-color: var(--color-bg-sub); }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 900px; margin: 0 auto; }
+        .plan-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 40px; position: relative; display: flex; flex-direction: column; text-align: center; }
+        .plan-card.premium { border-color: var(--color-gold); background: linear-gradient(145deg, rgba(207, 163, 79, 0.05), transparent); transform: scale(1.05); z-index: 1;}
+        .plan-tag { background: var(--color-gold); color: #0a1128; font-weight: 700; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 20px; }
+        .plan-title { font-size: 2.2rem; margin-bottom: 10px; font-family: var(--font-en); color: #fff;}
         .plan-price-box { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .initial-price { font-size: 0.9rem; color: var(--color-text-sub); display: block; margin-bottom: 5px; }
-        .initial-price strong { font-size: 2rem; color: #fff; font-family: var(--font-en); margin-left: 5px; }
-        .monthly-price { font-size: 1.1rem; color: var(--color-gold); font-weight: bold; display: block; margin-top: 5px;}
-
-        .plan-features { list-style: none; margin-bottom: 40px; flex-grow: 1; }
-        .plan-features li { margin-bottom: 12px; padding-left: 25px; position: relative; font-size: 0.9rem; color: #b8c7d9; }
+        .initial-price { font-size: 1rem; color: var(--color-text-sub); display: block; margin-bottom: 5px; }
+        .initial-price strong { font-size: 3rem; color: #fff; font-family: var(--font-en); margin-left: 5px; }
+        .monthly-price { font-size: 1.2rem; color: var(--color-accent); font-weight: bold; display: block; margin-top: 5px;}
+        .plan-features { list-style: none; flex-grow: 1; text-align: left; }
+        .plan-features li { margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1rem; color: #fff; }
         .plan-features li::before { content: '✔'; color: var(--color-gold); position: absolute; left: 0; font-weight: bold; }
-        .plan-note { font-size: 0.8rem; color: #6e7f8d; margin-top: -5px; margin-bottom: 10px; padding-left: 25px; }
-
-        .price-disclaimer { max-width: 800px; margin: 40px auto 0; text-align: center; font-size: 0.85rem; color: #8a9ba8; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }
-
-        /* Spot Support Box */
-        .spot-support-box {
-            margin-top: 60px;
-            background: rgba(10, 17, 40, 0.8);
-            border: 2px solid var(--color-accent);
-            border-radius: 15px;
-            padding: 30px; text-align: center;
-            max-width: 800px; margin-left: auto; margin-right: auto;
-        }
-        .spot-title { color: var(--color-accent); font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; }
-        .spot-grid {
-            display: flex; gap: 20px; text-align: left; margin-top: 20px;
-        }
-        .spot-item {
-            flex: 1; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; 
-            border:1px solid rgba(255,255,255,0.1);
-        }
-        .spot-item h4 { color: var(--color-text); margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
-        .spot-item p { font-size: 0.9rem; margin-bottom: 5px; }
-
-        @media (max-width: 768px) {
-            .spot-grid { flex-direction: column; }
-        }
 
         /* =========================================
-           9. FAQ & CTA & FOOTER (Common)
+           8. FAQ SECTION
            ========================================= */
-        .faq-section { background-color: var(--color-bg-sub); }
+        .faq-section { background-color: var(--color-bg-main); }
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-item { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .faq-question {
-            width: 100%; padding: 20px 0; text-align: left; background: none; border: none;
-            color: #fff; font-size: 1.1rem; font-weight: 700; font-family: var(--font-jp);
-            cursor: pointer; position: relative; display: flex; justify-content: space-between; align-items: center;
-        }
+        .faq-question { width: 100%; padding: 20px 0; text-align: left; background: none; border: none; color: #fff; font-size: 1.1rem; font-weight: 700; font-family: var(--font-jp); cursor: pointer; position: relative; display: flex; justify-content: space-between; align-items: center; }
         .faq-question::after { content: '+'; font-size: 1.5rem; color: var(--color-gold); transition: 0.3s; }
         details[open] .faq-question::after { content: '-'; transform: rotate(180deg); }
         .faq-answer { padding-bottom: 30px; color: var(--color-text-sub); line-height: 1.8; font-size: 0.95rem; }
 
-        .cta-section {
-            background: linear-gradient(rgba(10, 17, 40, 0.9), rgba(207, 163, 79, 0.2)), url('https://images.unsplash.com/photo-1519608487953-e999c9dc7468?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover; background-position: center; position: relative; text-align: center;
-        }
-        .cta-section h2 { font-size: 3rem; margin-bottom: 20px; }
-
-        .footer { background: #050a18; padding: 30px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        /* =========================================
+           9. CTA SECTION
+           ========================================= */
+        .cta-section { background: linear-gradient(rgba(10, 17, 40, 0.9), rgba(207, 163, 79, 0.2)), url('https://images.unsplash.com/photo-1519608487953-e999c9dc7468?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center; position: relative; text-align: center; }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 20px; color: #fff;}
 
         @media (max-width: 900px) {
             .hero-layout { flex-direction: column; text-align: center; }
             .hero-btns { justify-content: center; }
-            .hero-visual { margin-top: 40px; }
-            .feature-container { grid-template-columns: 1fr; }
-            .comparison-table th, .comparison-table td { padding: 15px 10px; font-size: 0.8rem; }
+            .plan-card.premium { transform: scale(1); }
         }
 
         /* Back to top */
-        .back-to-top {
-            position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px;
-            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
-            color: var(--color-bg-main); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            text-decoration: none; font-size: 1.2rem; font-weight: 900;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 9999;
-            opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s ease;
-            cursor: pointer; border: 1px solid rgba(255,255,255,0.2);
-        }
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light)); color: var(--color-bg-main); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; font-weight: 900; box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 9999; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s ease; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); }
         .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
         .back-to-top:hover { transform: translateY(-5px); background: var(--color-gold); }
 
@@ -350,51 +147,29 @@
     <header class="header">
         <div class="container header-inner">
             <div class="logo"><span>Ash</span> Tech</div>
-            <a href="https://lin.ee/83IMpPQ" class="btn btn-gold" style="padding: 10px 25px; font-size: 0.9rem;">
-                デモ体験・お問い合わせ
-            </a>
+            <div style="display: flex; gap: 10px;">
+                <a href="https://lin.ee/xl2FLR1" class="btn btn-outline" style="padding: 10px 15px; font-size: 0.8rem; border-color: #fff; color: #fff;">デモ体験</a>
+                <a href="https://coconala.com/services/4086867" class="btn btn-gold" style="padding: 10px 15px; font-size: 0.8rem;" target="_blank">ご購入・ご相談</a>
+            </div>
         </div>
     </header>
+
 
     <section class="hero">
         <div class="container hero-layout">
             <div class="hero-content">
-                <p class="catchphrase">大手ツール級の高機能を、月額ゼロで。</p>
+                <p class="catchphrase">高額なLINEサブスクは、もう不要。</p>
                 <h1 class="hero-title">
-                    <span class="highlight">データ資産化を実現するLINEシステム</span>
+                    <span class="highlight">毎月のツール代に悩むのは<br>終わりにしませんか？</span>
                     G-Flow
                 </h1>
                 <p class="hero-desc">
-                    「高額な月額費」と「データのブラックボックス化」からの解放。<br>
-                    Googleのサーバーレス技術を駆使し、メンテナンスフリーで稼働。<br>
-                    CRM、診断、セグメント配信の全てを、あなただけのGoogleスプレッドシート資産に変えます。
+                    「解約したら顧客データが全部消えるのが怖い…」<br>
+                    あなたのスプレッドシートが、月額0円の「顧客管理×LINEマーケティングツール」に生まれ変わります。<br>
+                    開発者すらアクセスできない鉄壁のデータ主権と、高額SaaS同等の自動化を買い切りで実現します。
                 </p>
                 <div class="hero-btns">
-                    <a href="#features" class="btn btn-gold">機能一覧を見る</a>
-                    <a href="https://lin.ee/83IMpPQ" class="btn btn-outline">デモ体験・無料相談</a>
-                </div>
-                <p style="margin-top: 25px; font-size: 0.85rem; color: #8a9ba8; line-height: 1.5;">
-                    ※ボタンを押すとLINEが立ち上がり、<br>
-                    <span style="color: var(--color-gold); font-weight: 700;">実際のシステムによる「自動診断デモ」</span>を即座に体験できます。
-                </p>
-            </div>
-
-            <div class="hero-visual">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="chat-header">G-Flow Official Demo</div>
-                        <div class="chat-bubble chat-bubble-user" style="margin-top:auto;">
-                            診断スタート
-                        </div>
-                        <div class="chat-bubble">
-                            Q1. ご希望の機能を選択してください。
-                        </div>
-                        <div class="chat-bubble-img">
-                            [ Flex Message Card ]<br>
-                            画像付き診断カード
-                        </div>
-                        <div class="chat-btn">詳しく見る ▶︎</div>
-                    </div>
+                    <a href="#features" class="btn btn-gold">6大機能を見る</a>
                 </div>
             </div>
         </div>
@@ -404,23 +179,28 @@
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="gold-text">Why G-Flow?</h2>
-                <p class="subtitle">他社ツールにはない、3つの圧倒的なアドバンテージ。</p>
+                <p class="subtitle">G-Flowが選ばれる4つの圧倒的な理由。</p>
             </div>
             <div class="usp-grid">
                 <div class="usp-card">
-                    <div class="usp-icon">💎</div>
-                    <h3>サーバーレスで<br>ランニングコスト「ゼロ」</h3>
-                    <p>Googleの無料枠を活用した設計で、維持費を極限まで削減。浮いた予算を広告や施策に投資できます。</p>
+                    <div class="usp-icon">💰</div>
+                    <h3>ランニングコスト<br>「永久0円」</h3>
+                    <p>Googleのインフラを活用した独自のアーキテクチャで、月額費用を完全ゼロ化。買い切りで高度な機能が手に入ります。</p>
                 </div>
                 <div class="usp-card">
                     <div class="usp-icon">🔐</div>
-                    <h3>データは全て<br>「あなたの資産」になる</h3>
-                    <p>顧客情報は使い慣れたGoogleスプレッドシートに蓄積。ツール解約でデータが消えるリスクはありません。</p>
+                    <h3>顧客データはすべて<br>「自社の完全な資産」へ</h3>
+                    <p>取得したデータはお客様のGoogleドライブに直接蓄積。解約によるデータ消失（ベンダーロックイン）のリスクはゼロです。</p>
                 </div>
                 <div class="usp-card">
-                    <div class="usp-icon">🎯</div>
-                    <h3>メンテナンスフリーの<br>「自動保守機能」</h3>
-                    <p>ログの自動削除やバックアップ機能を搭載。システムが重くなるのを防ぎ、長期的に安定稼働します。</p>
+                    <div class="usp-icon">📊</div>
+                    <h3>いつものエクセル感覚で<br>直感的な操作性</h3>
+                    <p>管理画面は使い慣れたスプレッドシート。文字を書き換えるだけで即座にLINEへ反映され、専門業者に頼らず自社運用が可能です。</p>
+                </div>
+                <div class="usp-card">
+                    <div class="usp-icon">🔄</div>
+                    <h3>既存アカウントからの<br>「スムーズな移行」</h3>
+                    <p>すでに友だちがいるアカウントでも安心。既存リストを無駄にせず、お客様に不信感を与えずに自然な流れで新システムへ移行できます。</p>
                 </div>
             </div>
         </div>
@@ -429,102 +209,58 @@
     <section id="features" class="section-padding feature-section">
         <div class="container">
             <div class="section-header text-center">
-                <h2>All Features</h2>
-                <p class="subtitle">高度なマーケティング機能と、堅牢なシステム基盤の融合。</p>
+                <h2>G-Flow 6大機能</h2>
+                <p class="subtitle">高額ツールでしかできなかった高度なマーケティングが、スプレッドシート上で完結。</p>
             </div>
 
             <div class="feature-container">
                 <div class="feature-box">
                     <div class="feature-header">
-                        <div class="feature-icon">💬</div>
-                        <div class="feature-title">診断・接客機能</div>
-                    </div>
-                    <ul class="feature-list">
-                        <li><strong>柔軟なシナリオ診断:</strong><br>質問文、選択肢、分岐をスプレッドシートで自由に設定可能。</li>
-                        <li><strong>属性タグの自由カスタマイズ:</strong><br>ユーザー自身でタグを自由に定義・付与設定が可能。追加コストはかかりません。</li>
-                        <li><strong>自在なコンバージョン誘導:</strong><br>診断結果に応じた画像付きカード（Flex Message）を自動生成。ユーザー名を含めた呼びかけで成約率UP。</li>
-                        <li><strong>高度な判定ロジック <span class="badge-premium">Premium</span>:</strong><br>スコアリング判定や、同点時の「優先順位」設定に対応。</li>
-                    </ul>
-                </div>
-
-                <div class="feature-box">
-                    <div class="feature-header">
                         <div class="feature-icon">📊</div>
-                        <div class="feature-title">データ分析・CRM</div>
+                        <div class="feature-title">1. 一元化された顧客管理<br>（CRM）</div>
                     </div>
-                    <ul class="feature-list">
-                        <li><strong>人間味のある顧客リスト:</strong><br>IDだけでなく「LINE表示名」を自動取得。誰がどのステータスにいるかをリアルタイム管理。</li>
-                        <li><strong>診断データ分析:</strong><br>「誰が・いつ・どのルートで・何の結果になったか」を1行で可視化。</li>
-                        <li><strong>グラフ・レポート化:</strong><br>Looker Studio連携により、診断結果の傾向やコンバージョン率をグラフで直感的に把握可能。</li>
-                    </ul>
+                    <p class="feature-desc">LINEの友だち情報（表示名など）や現在の対応ステータスを、スプレッドシートに自動蓄積・リアルタイム管理します。</p>
                 </div>
 
                 <div class="feature-box">
                     <div class="feature-header">
-                        <div class="feature-icon">📨</div>
-                        <div class="feature-title">セグメント・配信</div>
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-title">2. 柔軟なセグメント配信<br>（一斉配信） <span class="badge-premium">Premium</span> </div>
                     </div>
-                    <ul class="feature-list">
-                        <li><strong>ターゲット一斉配信:</strong><br>「予算重視タグの人」だけに絞ってメッセージを即時・予約配信。無駄打ちを削減。</li>
-                        <li><strong>安全なテスト送信機能:</strong><br>本番配信前に、管理者だけにテスト送信して表示崩れやリンクをチェック可能。</li>
-                        <li><strong>ステータス更新ガード:</strong><br>「商談中」などの重要顧客に対して、自動メッセージによるステータス上書きを防ぐ保護機能。</li>
-                        <li><strong>ステップ配信 <span class="badge-dev">Dev</span>:</strong><br>登録日から◯日後に自動でフォローメッセージを送信（開発ロードマップに含まれます）。</li>
-                    </ul>
+                    <p class="feature-desc">特定の属性タグを持つ顧客だけにピンポイントで配信。無駄打ちによるブロック率を下げ、成約率を高めます。</p>
                 </div>
 
                 <div class="feature-box">
                     <div class="feature-header">
-                        <div class="feature-icon">⚙️</div>
-                        <div class="feature-title">運用・メンテナンス</div>
+                        <div class="feature-icon">⏳</div>
+                        <div class="feature-title">3. シナリオ設計に基づく<br>「ステップ配信」 <span class="badge-premium">Premium</span></div>
                     </div>
-                    <ul class="feature-list">
-                        <li><strong>ワンクリック初期設定:</strong><br>難しいプログラム知識は不要。メニューから「初期セットアップ」を押すだけで環境構築完了。</li>
-                        <li><strong>完全自動メンテナンス:</strong><br>データが溜まってもシステムが重くならないよう、定期的に不要ログを自動削除。</li>
-                        <li><strong>自動バックアップ:</strong><br>大切な分析データは削除せず、「バックアップシート」へ自動退避。資産を長期保護します。</li>
-                    </ul>
+                    <p class="feature-desc">友だち追加や属性タグ付与を起点に、あらかじめ設計したシナリオ通りに教育・販売メッセージを自動送信します。</p>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="section-padding comparison-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>他社サービスとの比較</h2>
-                <p class="subtitle">その投資は本当に必要ですか？賢い選択肢がここにあります。</p>
-            </div>
-            <div class="comparison-table-wrap">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>比較項目</th>
-                            <th style="color:var(--color-text-sub);">一般的な月額制ツール</th>
-                            <th class="th-ash gold-text">G-Flow (Ash Tech)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>ランニングコスト</td>
-                            <td style="color:var(--color-text-sub);">月額数万円～<br><span style="font-size:0.8rem">(ツール利用料など)</span></td>
-                            <td class="td-ash">原則無料<br><span style="font-size:0.8rem">(Google無料枠内)</span> <span class="check-icon">✔</span></td>
-                        </tr>
-                        <tr>
-                            <td>データの所有権</td>
-                            <td style="color:var(--color-text-sub);">ツール側に依存<br><span style="font-size:0.8rem">(解約でアクセス不可も)</span></td>
-                            <td class="td-ash">完全にお客様の資産<br><span style="font-size:0.8rem">(スプレッドシート管理)</span> <span class="check-icon">✔</span></td>
-                        </tr>
-                        <tr>
-                            <td>設定の自由度</td>
-                            <td style="color:var(--color-text-sub);">プランで制限あり</td>
-                            <td class="td-ash">ユーザー自身で設定自在<br><span style="font-size:0.8rem">(タグ・質問文など)</span> <span class="check-icon">✔</span></td>
-                        </tr>
-                        <tr>
-                            <td>開発者の顔</td>
-                            <td style="color:var(--color-text-sub);">不明</td>
-                            <td class="td-ash">現役プロSEが対応 <span class="check-icon">✔</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="feature-box">
+                    <div class="feature-header">
+                        <div class="feature-icon">💬</div>
+                        <div class="feature-title">4. ニーズを引き出す<br>「診断機能」</div>
+                    </div>
+                    <p class="feature-desc">ユーザーのタップで進む診断やアンケートを簡単に構築。回答に応じたタグ付与と結果カード（Flex）送信が自在です。</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-header">
+                        <div class="feature-icon">🤖</div>
+                        <div class="feature-title">5. 運用コストを削減する<br>「自動応答」</div>
+                    </div>
+                    <p class="feature-desc">特定のキーワードを検知して、あらかじめ設定したメッセージや画像を24時間365日自動で返信します。</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-header">
+                        <div class="feature-icon">📱</div>
+                        <div class="feature-title">6. リッチメニューの<br>自動切り替え</div>
+                    </div>
+                    <p class="feature-desc">顧客の属性（タグ）に合わせて、LINE下部のメニューを自動でその人に最適なものへ変更します。</p>
+                </div>
             </div>
         </div>
     </section>
@@ -532,76 +268,46 @@
     <section class="section-padding plans-section">
         <div class="container">
             <div class="section-header text-center">
-                <h2>Service Plans</h2>
-                <p class="subtitle">ビジネス要件に合わせた2つのパッケージ。</p>
+                <h2>Plans & Pricing</h2>
+                <p class="subtitle">完全買い切り・月額0円。すべての機能が使えるプレミアム版を推奨しています。</p>
             </div>
 
             <div class="plans-grid">
                 <div class="plan-card">
                     <div>
-                        <span class="plan-tag" style="background:#b8c7d9;">PACKAGE</span>
+                        <span class="plan-tag" style="background:#b8c7d9;">基本の自動化・顧客管理</span>
                         <h3 class="plan-title">Standard</h3>
                         <div class="plan-price-box">
-                            <span class="initial-price">初期構築費<strong>¥150,000</strong><span style="font-size:1rem">(税別)</span></span>
-                            <span class="monthly-price">システム月額利用料: ¥0</span>
+                            <span class="initial-price">買い切り価格<strong>¥100,000</strong></span>
+                            <span class="monthly-price">月額システム費: ¥0</span>
                         </div>
                     </div>
                     <ul class="plan-features">
-                        <li><strong>仕様固定の標準パッケージ</strong></li>
-                        <li><strong>タグ・質問文は自由に設定可能</strong></li>
-                        <li>シナリオ診断 (5問程度 / ボタン選択)</li>
-                        <li>CRM (LINE名取得・ステータス管理)</li>
-                        <li>セグメント配信 (即時・予約・テスト送信)</li>
-                        <li>正確な配信数計測 (ブロック除外)</li>
-                        <li>自動メンテナンス & バックアップ</li>
+                        <li>顧客管理機能（CRM）</li>
+                        <li>自動応答</li>
+                        <li>診断機能</li>
+                        <li>リッチメニュー自動切替</li>
+
+                        <li>専用リッチメニューレイアウトテンプレート</li>
+                        <li>図解入りマニュアル</li>
                     </ul>
-                    <a href="https://lin.ee/83IMpPQ" class="btn btn-outline" style="width:100%; text-align:center;">導入の相談をする</a>
                 </div>
 
                 <div class="plan-card premium">
                     <div>
-                        <span class="plan-tag">ORDER MADE</span>
+                        <span class="plan-tag">売上最大化・全機能解放（推奨）</span>
                         <h3 class="plan-title">Premium</h3>
                         <div class="plan-price-box">
-                            <span class="initial-price">初期構築費<strong>¥250,000〜</strong><span style="font-size:1rem">(税別)</span></span>
-                            <span class="monthly-price">システム月額利用料: ¥0</span>
+                            <span class="initial-price">買い切り価格<strong>¥150,000</strong></span>
+                            <span class="monthly-price">月額システム費: ¥0</span>
                         </div>
                     </div>
                     <ul class="plan-features">
-                        <li><strong>仕様書に基づくカスタム設計</strong></li>
-                        <li><strong>スコアリング判定ロジック実装</strong></li>
-                        <li>質問数 10問〜 / 複雑な分岐ロジック</li>
-                        <li>テキスト入力 (感想・要望の取得)</li>
-                        <li>生成AI連携オプション (要相談)</li>
-                        <li>Looker Studio 高度分析レポート構築</li>
-                        <li>リッチメニュー出し分け実装</li>
+                        <li><strong>Standardプランの全機能</strong></li>
+                        <li><strong>ステップ配信機能（自動セールス）</strong></li>
+                        <li><strong>
+セグメント配信（一斉配信）</strong></li>
                     </ul>
-                    <a href="https://lin.ee/83IMpPQ" class="btn btn-gold" style="width:100%; text-align:center;">カスタマイズを相談する</a>
-                </div>
-            </div>
-
-            <div class="price-disclaimer">
-                <p>※本ページに記載の価格は、<strong>開発パートナー（制作会社・代理店）様向けの特別卸価格</strong>です。<br>
-                一般の店舗・企業様への直接導入や、運用コンサルティングを含む場合は価格が異なります。</p>
-            </div>
-
-            <div class="spot-support-box">
-                <div class="spot-title">🔧 システムが柔軟だから「修正費ゼロ」</div>
-                <div class="spot-grid">
-                    <div class="spot-item">
-                        <h4 style="color:var(--color-accent);">ご自身で設定する場合</h4>
-                        <p style="font-size:1.2rem; font-weight:bold; color:#fff;">費用：¥0</p>
-                        <p style="color:#b8c7d9;">
-                            質問文の変更、タグの追加、シナリオ分岐の設定などは、スプレッドシートからいつでも自由に変更可能です。システム修正費用はかかりません。
-                        </p>
-                    </div>
-                    <div class="spot-item">
-                        <h4 style="color:var(--color-gold);">設定代行を依頼する場合</h4>
-                        <p style="font-size:1.2rem; font-weight:bold; color:#fff;">月額サポート / スポット対応</p>
-                        <p style="color:#b8c7d9;">
-                            「忙しくて設定できない」「プロに構成を任せたい」という場合は、Ash Tech直営の運用代行サービス（直販のみ）をご利用いただけます。
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -614,58 +320,81 @@
                 <p class="subtitle">導入検討にあたり、多くのお客様からいただく疑問にお答えします。</p>
             </div>
             <div class="faq-container">
+
                 <details class="faq-item">
-                    <summary class="faq-question">本当に毎月のシステム利用料はかかりませんか？</summary>
+                    <summary class="faq-question">ITの専門知識がありませんが、自分で導入・設定できますか？</summary>
                     <div class="faq-answer">
-                        はい、G-Flowシステム自体の月額費用は原則発生しません。<br>
-                        本システムはGoogleが提供する無料のクラウド環境（Google Workspace無料枠）内で稼働するよう設計されています。一般的な中小規模の運用であれば、この無料枠を超えることはありません。<br>
-                        <small style="color: var(--color-gold);">※LINE公式アカウント自体の通数課金（LINE社への支払い）は別途必要となります。</small>
+                        はい、プログラミング等の知識は一切不要です！<br>
+                        お渡しする専用URLからご自身のGoogleドライブにシステムをコピーし、図解入りの丁寧なマニュアルに沿って初期設定を行うだけです。パソコンでの操作を推奨しておりますが、約15分程度で完了し、その日からすぐに稼働させることができます。
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-question">質問やタグの変更にお金はかかりますか？</summary>
+                    <summary class="faq-question">本当に導入後の月額費用は0円ですか？後から請求されませんか？</summary>
                     <div class="faq-answer">
-                        いいえ、かかりません。<br>
-                        G-Flowは「お客様自身で設定可能」なシステムです。スプレッドシートを編集するだけで、質問文やタグ、シナリオ分岐を即座に変更できます。修正のたびに開発者へ依頼料を支払う必要はありません。
+                        はい、G-Flowのシステム自体の利用料はずっと「0円（完全買い切り）」です。<br>
+                        ただし、配信するメッセージ数に応じたLINEヤフー株式会社側のプラン料金は、これまで通りアカウント所有者様のご負担となります。高額なSaaSツールのような「システムへの月額課金」は一切発生しませんのでご安心ください。
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-question">導入後のサポート体制はどうなっていますか？</summary>
+                    <summary class="faq-question">すでに運用中のLINE公式アカウントに導入しても、今の友だちは消えませんか？</summary>
                     <div class="faq-answer">
-                        システム自体の不具合については無償で対応いたします。<br>
-                        シナリオ作成や運用の代行をご希望の場合は、Ash Tech直営の有料サポート（月額またはスポット）もご用意しておりますので、お気軽にご相談ください。
+                        消えませんのでご安心ください。既存のアカウントにそのまま接続してご利用いただけます。<br>
+                        また、すでにいる友だちに対して不信感を与えずに、自然な流れで新しいシステムへ移行してもらうための「スムーズな引き継ぎノウハウ」もマニュアル内で解説しております。
                     </div>
                 </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">友だち登録者数が多い（数万人規模）のですが、問題なく動きますか？</summary>
+                    <div class="faq-answer">
+                        システム自体は稼働します。ただし、本システムはGoogleおよびLINEのAPIを利用しているため、友だち数が「数万人規模」に達する場合や、短期間に極端なアクセス集中が予想される運用においては、処理スピードの低下やAPI制限のリスクが高まります。<br>
+                        該当規模での運用をご検討の場合は、最適な運用設計を行うため、必ずご購入前にご相談ください。
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">自社の独自の業務フローに合わせて、設定をカスタマイズすることはできますか？</summary>
+                    <div class="faq-answer">
+                        はい、もちろんです！G-Flowの最大の強みは「全ての設定・管理がスプレッドシート一つで完結する」点にあります。<br>
+                        複雑な専用システムとは違い、直感的に分かりやすい画面構成となっているため、ご自身のビジネスの運用スタイルに合わせて、タグや自動応答のキーワード、メッセージ内容などを自在かつ簡単に設定してご利用いただけます。
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">もしシステムに不具合が起きた場合、サポートはしてもらえますか？</summary>
+                    <div class="faq-answer">
+                        最新バージョンのシステムをご利用中で、開発元のプログラムに起因する明らかな不具合（バグ）が発見された場合に限り、無償で修正対応を行い提供いたします。<br>
+                        なお、GoogleやLINEの仕様変更（API変更）に伴う大規模な改修が必要な場合は、有償のメジャーアップデート（任意）での対応となります。
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">制作会社や代理店として、自社のクライアントに導入することは可能ですか？</summary>
+                    <div class="faq-answer">
+                        はい、大歓迎です！自社のクライアント様への導入・設置代行など、ビジネス用途としてぜひご活用ください。<br>
+                        本システムはシステム認証の都合上「1つのLINEアカウントにつき1ライセンス」となりますので、導入先（クライアント様）ごとに新規でご購入をお願いしております。代理店様がクライアント様へスムーズにご提案・導入できるよう、ご不明点などがあればしっかりとサポートさせていただきますので、お気軽にご相談ください！
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">顧客データやセキュリティ面は安全ですか？情報漏洩が心配です。</summary>
+                    <div class="faq-answer">
+                        G-Flowの最大のメリットの一つが、他社ツールにはない強固なセキュリティとデータ主権です。<br>
+                        取得した顧客データは、外部企業のデータベースではなく「お客様ご自身のGoogleドライブ（スプレッドシート）」に直接保存されます。開発者である私を含め、第三者がデータにアクセスすることは物理的に不可能な仕組みとなっているため、情報漏洩のリスクを極限まで抑えた安全な運用が可能です。
+                    </div>
+                </details>
+
             </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding cta-section">
-        <div class="container cta-content">
-            <h2 class="gold-text">ビジネスを加速させる<br>「資産」を手に入れる</h2>
-            <p>まずは現状の課題をお聞かせください。<br>最適な導入プランをご提案いたします。</p>
-
-            <p style="margin-bottom: 15px; font-size: 1rem; color: var(--color-gold-light); font-weight: bold;">
-                ▼ 以下のボタンから、実際の診断デモがスタートします ▼
-            </p>
-
-            <a href="https://lin.ee/83IMpPQ" class="btn btn-gold">
-                デモを体験・お問い合わせはこちら
-            </a>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
             <div class="logo" style="margin-bottom: 15px; justify-content: center;"><span>Ash</span> Tech</div>
-
             <p style="margin-bottom: 15px;">
-                <a href="#" style="color: #5d6d7e; margin: 0 10px; font-size: 0.8rem; text-decoration: none;">特定商取引法に基づく表記</a> | 
-                <a href="#" style="color: #5d6d7e; margin: 0 10px; font-size: 0.8rem; text-decoration: none;">プライバシーポリシー</a>
+                <a href="privacy.html" style="color: #5d6d7e; margin: 0 10px; font-size: 0.8rem; text-decoration: none;">利用規約・プライバシーポリシー</a>
             </p>
-
             <p>&copy; Ash Tech. All Rights Reserved.</p>
         </div>
     </footer>
@@ -675,7 +404,6 @@
     <script>
         // トップへ戻るボタンの制御
         const backToTopBtn = document.getElementById('backToTop');
-
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
                 backToTopBtn.classList.add('show');
@@ -683,13 +411,9 @@
                 backToTopBtn.classList.remove('show');
             }
         });
-
         backToTopBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
