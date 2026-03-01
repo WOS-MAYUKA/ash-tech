@@ -135,6 +135,21 @@
             .plan-card.premium { transform: scale(1); }
         }
 
+        /* =========================================
+        COMPARISON SECTION
+           ========================================= */
+        .comparison-section { background-color: var(--color-bg-main); border-top: 1px solid rgba(255,255,255,0.05); }
+        .comparison-table-wrapper { overflow-x: auto; margin-top: 40px; }
+        .comparison-table { width: 100%; border-collapse: collapse; min-width: 700px; text-align: left; background: rgba(255,255,255,0.02); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .comparison-table th, .comparison-table td { padding: 25px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.6; }
+        .comparison-table tbody tr:last-child th, .comparison-table tbody tr:last-child td { border-bottom: none; }
+        .comparison-table th { font-family: var(--font-jp); font-weight: 700; font-size: 1.05rem; width: 22%; color: #fff; }
+        .comparison-table .col-saas { background: rgba(255,255,255,0.03); color: var(--color-text-sub); width: 38%; border-right: 1px solid rgba(255,255,255,0.05); }
+        .comparison-table .col-gflow { background: linear-gradient(180deg, rgba(207, 163, 79, 0.1) 0%, rgba(207, 163, 79, 0.02) 100%); color: #fff; width: 40%; position: relative; }
+        .comparison-table .row-header th { background: rgba(10, 17, 40, 0.95); text-align: center; font-size: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.1); padding: 20px; }
+        .comparison-table .row-header .col-gflow { border-top: 4px solid var(--color-gold); }
+        .comparison-table .gflow-highlight { color: var(--color-gold); font-weight: bold; font-size: 1.15rem; display: inline-block; margin-bottom: 5px; }
+
         /* Back to top */
         .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light)); color: var(--color-bg-main); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; font-weight: 900; box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 9999; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s ease; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); }
         .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
@@ -184,7 +199,7 @@
             <div class="usp-grid">
                 <div class="usp-card">
                     <div class="usp-icon">💰</div>
-                    <h3>ランニングコスト<br>「永久0円」</h3>
+                    <h3>ランニングコスト<br>「0円」</h3>
                     <p>Googleのインフラを活用した独自のアーキテクチャで、月額費用を完全ゼロ化。買い切りで高度な機能が手に入ります。</p>
                 </div>
                 <div class="usp-card">
@@ -202,6 +217,44 @@
                     <h3>既存アカウントからの<br>「スムーズな移行」</h3>
                     <p>すでに友だちがいるアカウントでも安心。既存リストを無駄にせず、お客様に不信感を与えずに自然な流れで新システムへ移行できます。</p>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section id="comparison" class="section-padding comparison-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="gold-text">SaaS vs G-Flow</h2>
+                <p class="subtitle">「借りる」から「所有する」へ。コストとデータ資産化における決定的な違い。</p>
+            </div>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr class="row-header">
+                            <th>比較項目</th>
+                            <th class="col-saas">一般的な月額LINEツール<br><span style="font-size: 0.85rem; font-weight: normal; color: #b8c7d9;">（SaaS 賃貸）</span></th>
+                            <th class="col-gflow"><span class="gold-text">G-Flow</span><br><span style="font-size: 0.85rem; font-weight: normal; color: #b8c7d9;">（自社データ資産型）</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>コスト構造</th>
+                            <td class="col-saas">毎月3万〜5万円を払い続ける「経費（PL）」</td>
+                            <td class="col-gflow"><span class="gflow-highlight">買い切り（月額0円）</span><br>一度の投資で完了する「資産（BS）」構築</td>
+                        </tr>
+                        <tr>
+                            <th>データの所有権<br>（オーナーシップ）</th>
+                            <td class="col-saas">ツール提供会社のサーバーに依存。<br>解約すればデータと自動化設定はすべて消滅。</td>
+                            <td class="col-gflow"><span class="gflow-highlight">自社のGoogleドライブに直接蓄積。</span><br>解約の概念がなく、一生涯自社の資産となる。</td>
+                        </tr>
+                        <tr>
+                            <th>データ活用の自由度<br>（外部AI・分析ツール連携）</th>
+                            <td class="col-saas">ツール内の機能に依存。<br>外部ツールと連携してデータを活用するには、「上位プランへの変更」や「API連携オプション」などの追加課金が必要になることが多い。</td>
+                            <td class="col-gflow"><span class="gflow-highlight">制限のないオープンなデータ基盤。</span><br>データがスプレッドシートにあるため、自社でBIツール（Looker Studio等）や外部AIと自由に連携・分析が可能。SaaSのような「API連携のためのシステム利用料アップ」等はありません。<br><span style="font-size: 0.75rem; color: #b8c7d9; font-weight: normal;">※外部API利用料や、G-Flow公式の追加プラグイン等をご利用の際は別途費用がかかります。</span></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
             </div>
         </div>
     </section>
@@ -384,7 +437,13 @@
                         取得した顧客データは、外部企業のデータベースではなく「お客様ご自身のGoogleドライブ（スプレッドシート）」に直接保存されます。開発者である私を含め、第三者がデータにアクセスすることは物理的に不可能な仕組みとなっているため、情報漏洩のリスクを極限まで抑えた安全な運用が可能です。
                     </div>
                 </details>
-
+                <details class="faq-item">
+                    <summary class="faq-question">データ管理がGoogle（スプレッドシート）に依存することにリスクはありませんか？</summary>
+                    <div class="faq-answer">
+                        むしろB2Bビジネスにおいて最大の安心材料（トラスト）として機能します。<br>
+                        特定のSaaSベンチャーの独自データベースに依存した場合、将来的なサービスの終了（倒産リスク）や、解約時にデータが書き出せない「ベンダーロックイン」の危険が伴います。一方、G-Flowは世界最高峰のインフラであるGoogleドライブ上に「汎用的な表計算データ」として保存されるため、1クリックでいつでもローカル（ExcelやCSV）にバックアップが可能です。特定のアプリに縛られず、いつでも持ち運びができるからこそ、真のデータオーナーシップが実現します。
+                    </div>
+                </details>
             </div>
         </div>
     </section>
